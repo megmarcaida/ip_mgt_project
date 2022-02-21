@@ -1,4 +1,4 @@
-# ip_mgt_project
+# IP Management Project
 
 ## A Web-based IP Address management solution to allow us to record an IP Address and comment on it assignment.
 
