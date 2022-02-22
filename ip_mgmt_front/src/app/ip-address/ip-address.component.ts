@@ -12,6 +12,10 @@ export class IpAddressComponent implements OnInit {
    accessToken: any;
    accessTokenDetails: any;
    loading: any;
+   errors: any;
+   ip_addresses:any;
+   ip_address:any;
+   description:any;
  
    constructor(
      private authService: AuthService,
@@ -20,10 +24,18 @@ export class IpAddressComponent implements OnInit {
      this.accessToken = localStorage.getItem('access_token');
    }
  
-   ngOnInit(): void { }
+  ngOnInit(): void {
+
+    this.authService.ipaddress()
+    .subscribe((data)=>{
+      this.loading = false;
+      console.log(data);
+      this.ip_addresses = data;
+    });
+
+  }
  
-  
-   logout(): void {
+  logout(): void {
      this.loading = true;
      this.authService.logout()
        .subscribe(() => {

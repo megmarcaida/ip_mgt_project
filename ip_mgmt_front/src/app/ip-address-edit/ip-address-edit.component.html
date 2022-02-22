@@ -1,0 +1,16 @@
+<h2 class="text-center">Update IP Address</h2>
+
+<form [formGroup]="ipForm" (ngSubmit)="updateIP(ipForm.value)">
+
+    <label>IP Address </label>
+    <input type="text" formControlName="ip_address" />
+
+    <label>Description </label>
+    <input type="text" formControlName="description"/>
+
+    <button type="submit" [disabled]="ipForm.invalid">Update</button>
+    <a [routerLink]="['/']">
+    <button type="submit">Back</button>
+    </a>
+
+</form>

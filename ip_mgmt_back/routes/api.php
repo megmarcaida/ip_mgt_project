@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
-
+use App\Http\Controllers\IpAddressController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,3 +23,5 @@ Route::middleware('auth:api')->get('/token/revoke', function (Request $request) 
         ]);
     return response()->json('DONE');
 });
+
+Route::resource('ipaddress', IpAddressController::class);
