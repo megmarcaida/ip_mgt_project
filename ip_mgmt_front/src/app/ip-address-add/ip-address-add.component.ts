@@ -38,10 +38,30 @@ export class IpAddressAddComponent implements OnInit {
     this.authService.addIP(data)
       .subscribe((res: any) => {
         console.log(res)
+
+        //get timestamp
+      const current = new Date();
+      const log = {
+        action_made: "add_data",
+        description: "added on "+ current.toLocaleString()
+      }
+  
+      console.log(log);
+      //audit trail save here
+      this.authService.saveLogs(log)
+        .subscribe((res: any) => {
+          console.log(res)
+        }, (err: any) => {
+          console.log(err)
+        });
+
         this.router.navigate(['/']);
       }, (err: any) => {
         console.log(err)
       });
+
+
+      
     }else{
       this.router.navigate(['/login']);
     }

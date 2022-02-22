@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\IpAddressController;
+use App\Http\Controllers\AuditTrailController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,3 +26,4 @@ Route::middleware('auth:api')->get('/token/revoke', function (Request $request) 
 });
 
 Route::resource('ipaddress', IpAddressController::class);
+Route::resource('audit_trail', AuditTrailController::class);

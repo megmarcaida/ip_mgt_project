@@ -51,6 +51,23 @@ export class IpAddressEditComponent implements OnInit {
     this.authService.updateIP(this.id,form)
       .subscribe((res: any) => {
         console.log(res)
+
+        //get timestamp
+        const current = new Date();
+        const log = {
+          action_made: "update_data",
+          description: "updated on "+ current.toLocaleString()
+        }
+    
+        console.log(log);
+        //audit trail save here
+        this.authService.saveLogs(log)
+          .subscribe((res: any) => {
+            console.log(res)
+          }, (err: any) => {
+            console.log(err)
+          });
+
         this.router.navigate(['/']);
       }, (err: any) => {
         console.log(err)
