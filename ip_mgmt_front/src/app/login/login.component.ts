@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
           }, (err: any) => {
             console.log(err)
           });
-
+          alert('Successfully login!')
         // Navigate to home page
         this.router.navigate(['/']);
       }, (err: any) => {

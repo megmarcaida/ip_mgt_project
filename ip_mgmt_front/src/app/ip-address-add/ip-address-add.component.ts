@@ -54,7 +54,7 @@ export class IpAddressAddComponent implements OnInit {
         }, (err: any) => {
           console.log(err)
         });
-
+        alert('Successfully added!')
         this.router.navigate(['/']);
       }, (err: any) => {
         console.log(err)

@@ -67,7 +67,7 @@ export class IpAddressEditComponent implements OnInit {
           }, (err: any) => {
             console.log(err)
           });
-
+          alert('Successfully updated!')
         this.router.navigate(['/']);
       }, (err: any) => {
         console.log(err)

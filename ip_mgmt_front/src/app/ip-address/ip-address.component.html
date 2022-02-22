@@ -1,36 +1,43 @@
-<h3>IP Address Management System</h3>
-<a class="float-right" [routerLink]="['/ip/add']">
-    <button type="button" class="btn btn-primary">Add</button>
-  </a>
-  <a class="float-right" [routerLink]="['/audit-trail']">
-    <button type="button" class="btn btn-primary">View Audit Trail</button>
-  </a>
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+      <h3>IP Address Management System</h3>
+      <a class="float-right" [routerLink]="['/ip/add']">
+          <button type="button" class="btn btn-primary col-4">Add</button>
+        </a>
+        <a class="float-right" [routerLink]="['/audit-trail']">
+          <button type="button" class="btn btn-warning col-4">View Audit Trail</button>
+        </a>
+        <button class="btn btn-danger col-4" (click)="logout()" [disabled]="loading">Logout</button>
+      <div *ngIf="ip_addresses?.length;  else noDataFound">
+      <table class="table">
+          <thead>
+            <tr> 
+              <th>IP Address</th>
+              <th>Description</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of ip_addresses; let i = index" [attr.data-index]="i">
+              <td> {{data.ip_address}}</td>
+              <td> {{data.description}}</td>
+              <td>
+                  <a [routerLink]="['/ip/edit/', data.id]">
+                      <button type="button" class="btn btn-primary">Edit</button>
+                  </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ng-template #noDataFound>
+        <b>No Data Found</b>
+      </ng-template>
+      <div>
+          
+      </div>
+    </div>
+  </div>
+</div>
 
-<div *ngIf="ip_addresses?.length;  else noDataFound">
-<table class="table">
-    <thead>
-      <tr> 
-        <th>IP Address</th>
-        <th>Description</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let data of ip_addresses; let i = index" [attr.data-index]="i">
-        <td> {{data.ip_address}}</td>
-        <td> {{data.description}}</td>
-        <td>
-            <a [routerLink]="['/ip/edit/', data.id]">
-                <button type="button" class="btn btn-primary">Edit</button>
-            </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<ng-template #noDataFound>
-   <b>No Data Found</b>
-</ng-template>
-<div>
-    <button class="btn btn-danger" (click)="logout()" [disabled]="loading">Logout</button>
-</div>
