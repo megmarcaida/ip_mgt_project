@@ -1,0 +1,41 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+
+  authUrl = 'http://localhost:8000/oauth/token';
+  apiUrl = 'http://localhost:8000/api';
+  options: any;
+
+  constructor(private http: HttpClient) {
+    this.options = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      })
+    };
+  }
+
+  //login method
+  login(u: string, p: string) {
+    return this.http.post(this.authUrl, {
+      grant_type: 'password',
+      client_id: '2',
+      client_secret: 'pSMexZE6q7VgfSZbasol4f86YxMmpCOJ9XXw21nm',
+      username: u,
+      password: p,
+      scope: ''
+    }, this.options);
+  }
+
+  //logout method
+  logout() {
+    let parameters = new HttpHeaders();
+    parameters = parameters.set('Authorization', "Bearer " + localStorage.getItem('access_token'));
+    
+    return this.http.get(this.apiUrl + '/token/revoke', { headers: parameters });
+  }
+}

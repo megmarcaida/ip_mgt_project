@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ip-address',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IpAddressComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+   accessToken: any;
+   accessTokenDetails: any;
+   loading: any;
+ 
+   constructor(
+     private authService: AuthService,
+     private router: Router
+   ) {
+     this.accessToken = localStorage.getItem('access_token');
+   }
+ 
+   ngOnInit(): void { }
+ 
+  
+   logout(): void {
+     this.loading = true;
+     this.authService.logout()
+       .subscribe(() => {
+         this.loading = false;
+         localStorage.removeItem('access_token');
+         this.router.navigate(['/login']);
+       });
+   }
 
 }
