@@ -62,6 +62,7 @@ export class AuthService {
     return this.http.get(this.apiUrl + '/ipaddress/'+id, { headers: parameters });
   }
 
+  //update ip address
   updateIP(id:any,data:any){
     
     let parameters = new HttpHeaders();
@@ -69,4 +70,20 @@ export class AuthService {
     console.log(data)
     return this.http.put(this.apiUrl + '/ipaddress/'+id, data ,  { headers: parameters });
   }
+
+  //save logs in audit trail
+  saveLogs(data:any){
+    let parameters = new HttpHeaders();
+    parameters = parameters.set('Authorization', "Bearer " + localStorage.getItem('access_token'));
+    return this.http.post(this.apiUrl + '/audit_trail',data,  { headers: parameters });
+  }
+
+  //get audit trail
+  getAuditTrail() {
+    let parameters = new HttpHeaders();
+    parameters = parameters.set('Authorization', "Bearer " + localStorage.getItem('access_token'));
+    
+    return this.http.get(this.apiUrl + '/audit_trail', { headers: parameters });
+  }
+
 }

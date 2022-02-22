@@ -1,0 +1,26 @@
+<h3>Audit Trail</h3>
+<div *ngIf="audit_trail?.length;  else noDataFound">
+<table class="table">
+    <thead>
+      <tr> 
+        <th>Description</th>
+        <th>Action Made</th>
+        <th>IP Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of audit_trail; let i = index" [attr.data-index]="i">
+        <td> {{data.description}}</td>
+        <td> {{data.action_made}}</td>
+        <td> {{data.ip_address}}</td>
+      </tr>
+    </tbody>
+</table>
+</div>
+<ng-template #noDataFound>
+   No Data Found
+</ng-template>
+
+<a [routerLink]="['/']">
+    <button type="submit">Back</button>
+</a>

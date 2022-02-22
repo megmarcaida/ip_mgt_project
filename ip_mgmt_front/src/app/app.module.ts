@@ -10,13 +10,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { IpAddressAddComponent } from './ip-address-add/ip-address-add.component';
 import { IpAddressEditComponent } from './ip-address-edit/ip-address-edit.component';
+import { AuditTrailComponent } from './audit-trail/audit-trail.component';
 @NgModule({
   declarations: [
     AppComponent,
     IpAddressComponent,
     LoginComponent,
     IpAddressAddComponent,
-    IpAddressEditComponent
+    IpAddressEditComponent,
+    AuditTrailComponent
   ],
   imports: [
     BrowserModule,

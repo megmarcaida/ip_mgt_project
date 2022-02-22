@@ -40,7 +40,28 @@ export class IpAddressComponent implements OnInit {
      this.authService.logout()
        .subscribe(() => {
          this.loading = false;
+
+          //get timestamp
+          const current = new Date();
+          const log = {
+            action_made: "logout",
+            description: "logout on "+ current.toLocaleString()
+          }
+      
+          console.log(log);
+          //audit trail save here
+          this.authService.saveLogs(log)
+            .subscribe((res: any) => {
+              console.log(res)
+            }, (err: any) => {
+              console.log(err)
+            });
+
+
          localStorage.removeItem('access_token');
+
+
+
          this.router.navigate(['/login']);
        });
    }

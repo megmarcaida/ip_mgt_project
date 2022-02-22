@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IpAddressAddComponent } from './ip-address-add/ip-address-add.component';
 import { IpAddressEditComponent } from './ip-address-edit/ip-address-edit.component';
+import { AuditTrailComponent } from './audit-trail/audit-trail.component';
 const routes: Routes = [
   {
     path: '',
@@ -15,12 +16,17 @@ const routes: Routes = [
   {
     path: 'ip/add',
     component: IpAddressAddComponent,
-    data: { title: 'Add todo' }
+    data: { title: 'Add IP Address' }
   },
   {
     path: 'ip/edit/:id',
     component: IpAddressEditComponent,
-    data: { title: 'Edit todo' }
+    data: { title: 'Edit IP Address' }
+  },
+  {
+    path: 'audit-trail',
+    component: AuditTrailComponent,
+    data: { title: 'View Audit Trail' }
   },
 ];
 

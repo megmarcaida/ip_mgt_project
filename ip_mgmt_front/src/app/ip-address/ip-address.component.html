@@ -2,6 +2,11 @@
 <a class="float-right" [routerLink]="['/ip/add']">
     <button type="button" class="btn btn-primary">Add</button>
   </a>
+  <a class="float-right" [routerLink]="['/audit-trail']">
+    <button type="button" class="btn btn-primary">View Audit Trail</button>
+  </a>
+
+<div *ngIf="ip_addresses?.length;  else noDataFound">
 <table class="table">
     <thead>
       <tr> 
@@ -22,9 +27,10 @@
       </tr>
     </tbody>
   </table>
-<ul>
-    
-</ul>
+</div>
+<ng-template #noDataFound>
+   <b>No Data Found</b>
+</ng-template>
 <div>
     <button class="btn btn-danger" (click)="logout()" [disabled]="loading">Logout</button>
 </div>
