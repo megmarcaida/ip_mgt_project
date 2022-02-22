@@ -60,7 +60,7 @@ export class IpAddressComponent implements OnInit {
 
          localStorage.removeItem('access_token');
 
-
+         alert('Successfully logout!')
 
          this.router.navigate(['/login']);
        });

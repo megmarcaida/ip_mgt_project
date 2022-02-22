@@ -1,16 +1,24 @@
-<h2 class="text-center">Update IP Address</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-sm"></div>
+        <div class="col-sm">
+            <h2 class="text-center">Update IP Address</h2>
 
-<form [formGroup]="ipForm" (ngSubmit)="updateIP(ipForm.value)">
+            <form [formGroup]="ipForm" (ngSubmit)="updateIP(ipForm.value)">
 
-    <label>IP Address </label>
-    <input type="text" formControlName="ip_address" />
+                <label>IP Address </label>
+                <input type="text" formControlName="ip_address" class="form-control"/>
 
-    <label>Description </label>
-    <input type="text" formControlName="description"/>
+                <label>Description </label>
+                <input type="text" formControlName="description" class="form-control"/>
 
-    <button type="submit" [disabled]="ipForm.invalid">Update</button>
-    <a [routerLink]="['/']">
-    <button type="submit">Back</button>
-    </a>
+                <button type="submit" [disabled]="ipForm.invalid" class="btn btn-success mt-2 col-12">Update</button>
+                <a [routerLink]="['/']">
+                <button type="submit" class="btn btn-primary mt-2 col-12">Back</button>
+                </a>
 
-</form>
+            </form>
+        </div>
+        <div class="col-sm"></div>
+    </div>
+</div>
