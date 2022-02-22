@@ -38,4 +38,35 @@ export class AuthService {
     
     return this.http.get(this.apiUrl + '/token/revoke', { headers: parameters });
   }
+
+  //get ip addresses method
+  ipaddress() {
+    let parameters = new HttpHeaders();
+    parameters = parameters.set('Authorization', "Bearer " + localStorage.getItem('access_token'));
+    
+    return this.http.get(this.apiUrl + '/ipaddress', { headers: parameters });
+  }
+
+  //add ip method
+  addIP(data:any) {
+    let parameters = new HttpHeaders();
+    parameters = parameters.set('Authorization', "Bearer " + localStorage.getItem('access_token'));
+    return this.http.post(this.apiUrl + '/ipaddress',data,  { headers: parameters });
+  }
+
+  //get ip addresses method
+  getIPAddress(id:any) {
+    let parameters = new HttpHeaders();
+    parameters = parameters.set('Authorization', "Bearer " + localStorage.getItem('access_token'));
+    
+    return this.http.get(this.apiUrl + '/ipaddress/'+id, { headers: parameters });
+  }
+
+  updateIP(id:any,data:any){
+    
+    let parameters = new HttpHeaders();
+    parameters = parameters.set('Authorization', "Bearer " + localStorage.getItem('access_token'));
+    console.log(data)
+    return this.http.put(this.apiUrl + '/ipaddress/'+id, data ,  { headers: parameters });
+  }
 }

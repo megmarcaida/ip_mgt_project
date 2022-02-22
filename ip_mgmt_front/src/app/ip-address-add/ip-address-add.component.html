@@ -1,0 +1,14 @@
+<h2 class="text-center">Add Todo</h2>
+<form [formGroup]="ipForm" (ngSubmit)="addIP()">
+   
+<label>IP Address </label>
+<input type="text" formControlName="ip_address" />
+
+<label>Description </label>
+<input type="text" formControlName="description"/>
+
+<button type="submit" [disabled]="ipForm.invalid">Add</button>
+<a [routerLink]="['/']">
+<button type="submit">Back</button>
+</a>
+</form>
