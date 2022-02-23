@@ -16,6 +16,7 @@ composer install
 ```
 cd ip_mgmt_front
 npm install
+npm install -g @angular/cli
 ```
 4. Create an `.env` file and configure your database access
 5. Migrate and configure laravel/passport
