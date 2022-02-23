@@ -56,7 +56,7 @@ export class IpAddressEditComponent implements OnInit {
         const current = new Date();
         const log = {
           action_made: "update_data",
-          description: "updated on "+ current.toLocaleString()
+          description: "updated " + JSON.stringify(form) +" on "+ current.toLocaleString()
         }
     
         console.log(log);

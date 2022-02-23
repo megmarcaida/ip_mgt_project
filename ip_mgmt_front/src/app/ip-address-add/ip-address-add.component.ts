@@ -43,7 +43,7 @@ export class IpAddressAddComponent implements OnInit {
       const current = new Date();
       const log = {
         action_made: "add_data",
-        description: "added on "+ current.toLocaleString()
+        description: "added " + JSON.stringify(data) +" on "+ current.toLocaleString()
       }
   
       console.log(log);
