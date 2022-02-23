@@ -21,7 +21,7 @@ npm install -g @angular/cli
 4. Create an `.env` file and configure your database access
 5. Migrate and configure laravel/passport
 ```
-cd ip_mgmt_front
+cd ip_mgmt_back
 php artisan migrate
 php artisan passport:install
 php artisan key:generate
