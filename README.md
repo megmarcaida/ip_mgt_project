@@ -11,6 +11,7 @@
 ```
 cd ip_mgmt_back
 composer install
+php artisan key:generate
 ```
 3. Install frontent - angular dependencies
 ```
