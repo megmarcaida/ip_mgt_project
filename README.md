@@ -11,7 +11,6 @@
 ```
 cd ip_mgmt_back
 composer install
-php artisan key:generate
 ```
 3. Install frontent - angular dependencies
 ```
@@ -25,6 +24,7 @@ npm install -g @angular/cli
 cd ip_mgmt_front
 php artisan migrate
 php artisan passport:install
+php artisan key:generate
 ```
 6. Configure laravel/passport on Angular
 ```
