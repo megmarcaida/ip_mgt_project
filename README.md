@@ -54,4 +54,7 @@ Run angular application, by executing the following command:
 ```
 cd ip_mgmt_front
 ng serve
+Visit: localhost:4200
+Email Address: testuser@test.com
+Password: test1234
 ```
